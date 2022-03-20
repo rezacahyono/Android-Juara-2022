@@ -1,5 +1,6 @@
 package com.rchyno.diceroller
 
+import com.rchyno.diceroller.model.Dice
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,5 +14,12 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun rollDice(){
+        val dice = Dice(6)
+        val rollResult = dice.roll()
+        assertTrue("the value of rollResult was not berween 1 and 6", rollResult in 1..6)
     }
 }
