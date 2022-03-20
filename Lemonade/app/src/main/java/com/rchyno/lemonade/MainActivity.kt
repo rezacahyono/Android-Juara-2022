@@ -10,32 +10,23 @@ import com.rchyno.lemonade.model.LemonTree
 
 class MainActivity : AppCompatActivity() {
 
-    // initial key state lemon
     companion object {
         private const val LEMONADE_STATE = "LEMONADE_STATE"
         private const val LEMON_SIZE = "LEMON_SIZE"
         private const val SQUEEZE_COUNT = "SQUEEZE_COUNT"
 
-        // SELECT represents the "pick lemon" state
         private const val SELECT = "select"
 
-        // SQUEEZE represents the "squeeze lemon" state
         private const val SQUEEZE = "squeeze"
 
-        // DRINK represents the "drink lemonade" state
         private const val DRINK = "drink"
 
-        // RESTART represents the state where the lemonade has been drunk and the glass is empty
         private const val RESTART = "restart"
     }
-
-    // Default the state to select
     private var lemonadeState = "select"
 
-    // Default lemonSize to -1
     private var lemonSize = -1
 
-    // Default the squeezeCount to -1
     private var squeezeCount = -1
 
     private var lemonTree = LemonTree()
@@ -84,12 +75,8 @@ class MainActivity : AppCompatActivity() {
                     lemonSize = -1
                 }
             }
-            DRINK -> {
-                lemonadeState = RESTART
-            }
-            RESTART -> {
-                lemonadeState = SELECT
-            }
+            DRINK -> lemonadeState = RESTART
+            RESTART -> lemonadeState = SELECT
         }
         setViewElements()
     }
