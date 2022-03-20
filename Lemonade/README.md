@@ -1,3 +1,3 @@
-### Lamonade App
+## Lamonade App
 ---
-## course in pathway kotlin basics
+### course in pathway kotlin basics
