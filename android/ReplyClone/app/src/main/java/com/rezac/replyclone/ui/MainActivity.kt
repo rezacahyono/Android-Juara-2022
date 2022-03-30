@@ -1,4 +1,4 @@
-package com.rezac.replyclone
+package com.rezac.replyclone.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
