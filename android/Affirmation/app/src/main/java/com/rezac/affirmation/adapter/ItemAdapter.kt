@@ -12,9 +12,10 @@ class ItemAdapter(
     private val dataset: List<Affirmation>
 ): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(
-        private val binding: ListItemBinding
+        binding: ListItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
         val itemTitle = binding.itemTitle
+        val itemImage = binding.itemImage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -25,6 +26,7 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.itemTitle.text = context.resources.getString(item.stringResourceId)
+        holder.itemImage.setImageResource(item.imageResourceId)
     }
 
     override fun getItemCount(): Int = dataset.size
