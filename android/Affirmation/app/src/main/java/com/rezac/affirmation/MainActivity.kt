@@ -2,6 +2,7 @@ package com.rezac.affirmation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rezac.affirmation.adapter.ItemAdapter
 import com.rezac.affirmation.data.DataSource
 import com.rezac.affirmation.databinding.ActivityMainBinding
 
@@ -12,9 +13,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val dataset = DataSource().loadAffirmations()
 
-        val dataSource = DataSource()
-        val listAffirmation = dataSource.loadAffirmations()
-        binding.affirmationInfo.text = listAffirmation.size.toString()
+        binding.affirmationRecyclerView.adapter = ItemAdapter(this, dataset)
+
+        binding.affirmationRecyclerView.setHasFixedSize(true)
+
     }
 }
