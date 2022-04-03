@@ -10,13 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Words">
         <activity
-            android:name=".ui.DetailActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"/>
-        </activity>
-        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

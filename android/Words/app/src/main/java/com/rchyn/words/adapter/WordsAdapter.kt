@@ -10,7 +10,7 @@ import android.view.accessibility.AccessibilityNodeInfo
 import androidx.recyclerview.widget.RecyclerView
 import com.rchyn.words.R
 import com.rchyn.words.databinding.ItemViewBinding
-import com.rchyn.words.ui.DetailActivity
+import com.rchyn.words.ui.fragment.WordListFragment
 
 class WordsAdapter(
     private val letterId: String,
@@ -34,7 +34,7 @@ class WordsAdapter(
         fun bind(word: String){
             binding.buttonItem.text = word
             binding.buttonItem.setOnClickListener {
-                val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}$word")
+                val queryUrl: Uri = Uri.parse("${WordListFragment.SEARCH_PREFIX}$word")
                 val intent = Intent(Intent.ACTION_VIEW, queryUrl)
                 itemView.context.startActivity(intent)
             }

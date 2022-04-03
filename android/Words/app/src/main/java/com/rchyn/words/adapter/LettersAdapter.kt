@@ -1,14 +1,14 @@
 package com.rchyn.words.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rchyn.words.R
-import com.rchyn.words.ui.DetailActivity
+import com.rchyn.words.ui.fragment.LetterListFragmentDirections
 
 class LettersAdapter: RecyclerView.Adapter<LettersAdapter.LettersViewHolder>() {
     private val list = ('A').rangeTo('Z').toList()
@@ -28,11 +28,9 @@ class LettersAdapter: RecyclerView.Adapter<LettersAdapter.LettersViewHolder>() {
     override fun onBindViewHolder(holder: LettersViewHolder, position: Int) {
         val item = list[position].toString()
         holder.letter.text = item
-        val context = holder.itemView.context
         holder.letter.setOnClickListener {
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.LETTER_EXTRAS, holder.letter.text.toString())
-            context.startActivity(intent)
+            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.letter.text.toString())
+            holder.itemView.findNavController().navigate(action)
         }
     }
 
