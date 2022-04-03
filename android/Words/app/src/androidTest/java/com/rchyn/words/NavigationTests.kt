@@ -28,7 +28,7 @@ class NavigationTests {
     @Before
     fun setUp() {
         navController = TestNavHostController(ApplicationProvider.getApplicationContext())
-        
+
         letterListScenario =
             launchFragmentInContainer(themeResId = R.style.Theme_Words)
 
