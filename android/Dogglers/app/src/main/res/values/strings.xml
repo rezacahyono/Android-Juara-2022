@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dogglers</string>
+    <string name="horizontal_list">Horizontal list</string>
+    <string name="vertical_list">Vertical list</string>
+    <string name="grid_list">Grid list</string>
+    <string name="dog_age">Age: %s</string>
+    <string name="dog_hobby">Hobbies: %s</string>
 </resources>
