@@ -1,7 +1,6 @@
 package com.rchyn.unscramble.ui.game
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,11 +22,6 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_game, container, false)
-        Log.d("GameFragment", "GameFragment created/re-created!")
-        Log.d(
-            "GameFragment", "Word: ${viewModel.currentScrambledWord} " +
-                    "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}"
-        )
         return binding.root
     }
 
@@ -103,11 +97,6 @@ class GameFragment : Fragment() {
      */
     private fun exitGame() {
         activity?.finish()
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("GameFragment", "GameFragment destroyed!")
     }
 
     /**
