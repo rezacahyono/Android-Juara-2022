@@ -30,10 +30,7 @@ class OrderViewModel : ViewModel() {
     val dateOptions = getPickupOptions()
 
     init {
-        _quantity.value = 0
-        _flavor.value = ""
-        _date.value = dateOptions[0]
-        _price.value = 0.0
+        resetOrder()
     }
 
     fun setQuantity(numberCupcakes: Int) {
@@ -48,6 +45,13 @@ class OrderViewModel : ViewModel() {
     fun setDate(pickupDate: String) {
         _date.value = pickupDate
         updatePrice()
+    }
+
+    fun resetOrder(){
+        _quantity.value = 0
+        _flavor.value = ""
+        _date.value = dateOptions[0]
+        _price.value = 0.0
     }
 
 

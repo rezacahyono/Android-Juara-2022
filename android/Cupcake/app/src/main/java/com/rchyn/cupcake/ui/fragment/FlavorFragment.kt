@@ -20,8 +20,7 @@ class FlavorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentFlavorBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -39,6 +38,11 @@ class FlavorFragment : Fragment() {
 
     fun goToNextScreen() {
         findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
+    }
+
+    fun cancelOrder(){
+        findNavController().navigate(R.id.action_flavorFragment_to_startFragment)
+        shareViewModel.resetOrder()
     }
 
     override fun onDestroyView() {

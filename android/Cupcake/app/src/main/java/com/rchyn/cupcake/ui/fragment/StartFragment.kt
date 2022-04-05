@@ -1,6 +1,7 @@
 package com.rchyn.cupcake.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,8 @@ class StartFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        Log.d("TAG", "onCreateView: ${shareViewModel.price.value.toString()}")
         _binding = FragmentStartBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

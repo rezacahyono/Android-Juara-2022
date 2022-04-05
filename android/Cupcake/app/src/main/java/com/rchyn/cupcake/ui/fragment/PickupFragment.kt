@@ -20,8 +20,7 @@ class PickupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentPickupBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -39,6 +38,11 @@ class PickupFragment : Fragment() {
 
     fun goToNextScreen() {
         findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
+    }
+
+    fun cancelOrder(){
+        findNavController().navigate(R.id.action_pickupFragment_to_startFragment)
+        shareViewModel.resetOrder()
     }
 
 
