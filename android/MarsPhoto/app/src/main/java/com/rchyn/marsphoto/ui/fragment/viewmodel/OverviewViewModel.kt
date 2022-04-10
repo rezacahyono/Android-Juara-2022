@@ -26,7 +26,7 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
-                val listResult = MarsApi.retrofitService.getPhoto()
+                val listResult = MarsApi.retrofitService.getPhotos()
                 _photos.value = listResult
                 _status.value = MarsApiStatus.DONE
             } catch (e: Exception) {
