@@ -1,28 +1,22 @@
-package com.rchyn.cupcake.ui.fragment
+package com.rchyn.lunchtray.ui.order
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.rchyn.cupcake.R
-import com.rchyn.cupcake.databinding.FragmentStartBinding
-import com.rchyn.cupcake.model.OrderViewModel
+import com.rchyn.lunchtray.R
+import com.rchyn.lunchtray.databinding.FragmentStartBinding
 
 class StartFragment : Fragment() {
 
-    private val shareViewModel: OrderViewModel by activityViewModels()
-
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentStartBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -30,17 +24,11 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.apply {
-            startFragment = this@StartFragment
-        }
+        binding.buttonStartOrder.setOnClickListener { goTextNextScreen() }
     }
 
-    fun orderCupcake(quantity: Int) {
-        shareViewModel.setQuantity(quantity)
-        if (shareViewModel.hasNoFlavorSet()) {
-            shareViewModel.setFlavor(getString(R.string.vanilla))
-        }
-        findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
+    private fun goTextNextScreen() {
+        findNavController().navigate(R.id.action_startFragment_to_entreeMenuFragment)
     }
 
 

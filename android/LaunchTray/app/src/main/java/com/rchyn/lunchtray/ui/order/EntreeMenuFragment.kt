@@ -1,50 +1,50 @@
-package com.rchyn.cupcake.ui.fragment
+package com.rchyn.lunchtray.ui.order
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.rchyn.cupcake.R
-import com.rchyn.cupcake.databinding.FragmentFlavorBinding
-import com.rchyn.cupcake.model.OrderViewModel
+import com.rchyn.lunchtray.R
+import com.rchyn.lunchtray.databinding.FragmentEntreeMenuBinding
+import com.rchyn.lunchtray.ui.order.viewmodel.OrderViewModel
 
-class FlavorFragment : Fragment() {
+class EntreeMenuFragment : Fragment() {
 
-    private val shareViewModel: OrderViewModel by activityViewModels()
+    private val viewModel: OrderViewModel by activityViewModels()
 
-    private var _binding: FragmentFlavorBinding? = null
+    private var _binding: FragmentEntreeMenuBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFlavorBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentEntreeMenuBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            flavorFragment = this@FlavorFragment
-            viewModel = shareViewModel
+            mainViewModel = viewModel
             lifecycleOwner = viewLifecycleOwner
+            entreeMenuFragment = this@EntreeMenuFragment
         }
     }
 
     fun goToNextScreen() {
-        findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
+        findNavController().navigate(R.id.action_entreeMenuFragment_to_sideMenuFragment)
     }
 
+
     fun cancelOrder() {
-        findNavController().navigate(R.id.action_flavorFragment_to_startFragment)
-        shareViewModel.resetOrder()
+        viewModel.resetOrder()
+        findNavController().navigate(R.id.action_entreeMenuFragment_to_startFragment)
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
