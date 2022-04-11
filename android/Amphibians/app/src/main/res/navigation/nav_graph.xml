@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/amphibiansListFragment">
+
+    <fragment
+        android:id="@+id/amphibiansListFragment"
+        android:name="com.rchyn.amphibians.ui.fragment.AmphibiansListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_amphibians_list">
+        <action
+            android:id="@+id/action_amphibiansListFragment_to_amphibiansDetailFragment"
+            app:destination="@id/amphibiansDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/amphibiansDetailFragment"
+        android:name="com.rchyn.amphibians.ui.fragment.AmphibiansDetailFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_amphibians_detail"/>
+</navigation>
